@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\XML\\QuanLyKhoSieuThi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\formselectproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\formselectproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\formselectproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\formselectproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|e:\\xml\\quanlykhosieuthi\\quanlykhosieuthi\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E7E4AE1D-F7B2-4D9D-BDC5-E17A51CE3634}|QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj|solutionrelative:quanlykhosieuthi\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormSelectProduct.cs",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\FormSelectProduct.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\FormSelectProduct.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\FormSelectProduct.cs",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\FormSelectProduct.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAwDUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T09:37:27.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormSelectProduct.cs [Design]",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\FormSelectProduct.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\FormSelectProduct.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\FormSelectProduct.cs [Design]",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\FormSelectProduct.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T09:34:25.111Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Form1.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\Form1.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Form1.cs [Design]",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T08:46:55.527Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Form1.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\Form1.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Form1.cs",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\Form1.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAAwNcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T08:27:53.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Product.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\Product.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Product.cs",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T09:43:49.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Program.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\Program.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Program.cs",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T08:10:26.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cs",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Login.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\Login.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Login.cs",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\Login.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAmwEcAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T08:08:08.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Login.cs",
+              "RelativeDocumentMoniker": "QuanLyKhoSieuThi\\Login.cs",
+              "ToolTip": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\Login.cs [Design]",
+              "RelativeToolTip": "QuanLyKhoSieuThi\\Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T07:59:34.057Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

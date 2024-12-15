@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PhieuNhaps>
+    <PhieuNhap>
+        <MaPhieu>PN001</MaPhieu>
+        <NguoiGiao>Nguyen Van A</NguoiGiao>
+        <SoLuong>100</SoLuong>
+        <MaSP>SP001</MaSP>
+        <ThoiGian>2024-12-15 10:30:00</ThoiGian>
+        <GhiChu>Nhập hàng mới</GhiChu>
+        <MaNhaCungCap>NCC746</MaNhaCungCap>
+    </PhieuNhap>
+    <PhieuNhap>
+        <MaPhieu>PN002</MaPhieu>
+        <NguoiGiao>Nguyen Thi B</NguoiGiao>
+        <SoLuong>200</SoLuong>
+        <MaSP>SP002</MaSP>
+        <ThoiGian>2024-12-16 09:00:00</ThoiGian>
+        <GhiChu>Nhập hàng khuyến mãi</GhiChu>
+        <MaNhaCungCap>NCC743</MaNhaCungCap>
+    </PhieuNhap>
+</PhieuNhaps>

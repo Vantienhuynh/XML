@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Products>
+  <Product>
+    <ID>1</ID>
+    <MaSP>SP003</MaSP>
+    <TenSP>Sản phẩm C</TenSP>
+    <SoLuongCon>200</SoLuongCon>
+    <DonGia>30000</DonGia>
+    <NSX>2023-03-01</NSX>
+    <NgayHetHan>2024-03-01</NgayHetHan>
+    <LoaiHang>Loại 1</LoaiHang>
+    <DonViTinh>Cái</DonViTinh>
+  </Product>
+  <Product>
+    <ID>2</ID>
+    <MaSP>SP004</MaSP>
+    <TenSP>GGGGG</TenSP>
+    <SoLuongCon>34</SoLuongCon>
+    <DonGia>45000</DonGia>
+    <NSX>Cocacola</NSX>
+    <NgayHetHan>Thursday, November 28, 2024</NgayHetHan>
+    <LoaiHang>Thực phẩm</LoaiHang>
+    <DonViTinh>Gói</DonViTinh>
+  </Product>
+  <Product>
+    <ID>3</ID>
+    <MaSP>SP002</MaSP>
+    <TenSP>Tayeunang</TenSP>
+    <SoLuongCon>3</SoLuongCon>
+    <DonGia>3444</DonGia>
+    <NSX>Cocacola</NSX>
+    <NgayHetHan>Friday, December 27, 2024</NgayHetHan>
+    <LoaiHang>Gia dụng</LoaiHang>
+    <DonViTinh>Thùng</DonViTinh>
+  </Product>
+  <Product>
+    <ID>4</ID>
+    <MaSP>SP001</MaSP>
+    <TenSP>Tayeunang</TenSP>
+    <SoLuongCon>3</SoLuongCon>
+    <DonGia>2003</DonGia>
+    <NSX>Cocacola</NSX>
+    <NgayHetHan>Saturday, November 23, 2024</NgayHetHan>
+    <LoaiHang>Điện tử</LoaiHang>
+    <DonViTinh>Cái</DonViTinh>
+  </Product>
+</Products>

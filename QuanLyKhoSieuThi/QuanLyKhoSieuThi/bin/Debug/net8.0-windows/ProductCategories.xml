@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCategories>
+    <Category>
+        <ID>1</ID>
+        <Name>Điện tử</Name>
+    </Category>
+    <Category>
+        <ID>2</ID>
+        <Name>Gia dụng</Name>
+    </Category>
+    <Category>
+        <ID>3</ID>
+        <Name>Thực phẩm</Name>
+    </Category>
+</ProductCategories>

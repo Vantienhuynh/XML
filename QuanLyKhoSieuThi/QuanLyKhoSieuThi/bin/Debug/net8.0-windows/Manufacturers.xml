@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Manufacturers>
+    <Manufacturer>
+        <Code>NCC746</Code>
+        <Name>Nhà sản xuất A</Name>
+        <Status>Hoạt động</Status>
+        <PhoneNumber>0901234567</PhoneNumber>
+        <Email>ZZ@gmail.com</Email>
+        <Mua>122222222</Mua>
+        <No>122222222</No>
+    </Manufacturer>
+    <Manufacturer>
+        <Code>NCC743</Code>
+        <Name>Nhà sản xuất B</Name>
+        <Status>Hoạt động</Status>
+        <PhoneNumber>0901234567</PhoneNumber>
+        <Email>ZZ@gmail.com</Email>
+        <Mua>122222222</Mua>
+        <No>122222222</No>
+    </Manufacturer>
+</Manufacturers>

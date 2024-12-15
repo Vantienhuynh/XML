@@ -1,0 +1,24 @@
+﻿namespace QuanLyKhoSieuThi
+{
+    internal static class Program
+    {
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+
+            Login loginForm = new Login();
+            DialogResult result = loginForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
+            //Application.Run(new Login());
+        }
+    }
+}

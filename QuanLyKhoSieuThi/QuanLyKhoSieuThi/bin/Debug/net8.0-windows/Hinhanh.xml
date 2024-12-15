@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hinhanh>
+  <sanpham id="1">
+    <hinh>path/to/image1.jpg</hinh>
+  </sanpham>
+  <ProductImages>
+    <ProductID>SP002</ProductID>
+    <Hinh1 />
+    <Hinh2 />
+    <Hinh3 />
+  </ProductImages>
+  <ProductImages>
+    <ProductID>SP002</ProductID>
+    <Hinh1>C:\Users\DELL\Downloads\anime.jpg</Hinh1>
+    <Hinh2 />
+    <Hinh3 />
+  </ProductImages>
+  <ProductImages>
+    <ProductID>SP001</ProductID>
+    <Hinh1 />
+    <Hinh2 />
+    <Hinh3 />
+  </ProductImages>
+  <ProductImages>
+    <ProductID>SP001</ProductID>
+    <Hinh1>C:\Users\DELL\Downloads\anime.jpg</Hinh1>
+    <Hinh2>C:\Users\DELL\Downloads\anime.jpg</Hinh2>
+    <Hinh3>C:\Users\DELL\Downloads\programmer.png</Hinh3>
+  </ProductImages>
+</hinhanh>
