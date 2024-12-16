@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace QuanLyKhoSieuThi
 {
@@ -31,7 +33,45 @@ namespace QuanLyKhoSieuThi
             txtDonVi.Text = donViTinh;
 
             _productManager = new ProductManager(xmlFilePath, imagePath);
+            LoadProductImagesXmlDocument(maSP);
+        }
+        private void LoadProductImagesXmlDocument(string maSP)
+        {
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Hinhanh.xml");
 
+                // Tìm tất cả các ProductImages
+                XmlNode productImageNode = doc.SelectSingleNode($"/hinhanh/ProductImages[ProductID='{maSP}']");
+
+                if (productImageNode != null)
+                {
+                    string hinh1 = productImageNode["Hinh1"]?.InnerText.Trim();
+                    string hinh2 = productImageNode["Hinh2"]?.InnerText.Trim();
+                    string hinh3 = productImageNode["Hinh3"]?.InnerText.Trim();
+
+                    MessageBox.Show($"Hinh1: {hinh1}, Hinh2: {hinh2}, Hinh3: {hinh3}");
+
+                    // Hiển thị hình ảnh
+                    if (!string.IsNullOrEmpty(hinh1) && File.Exists(hinh1))
+                        guna2ImageButton3.Image = Image.FromFile(hinh1);
+
+                    if (!string.IsNullOrEmpty(hinh2) && File.Exists(hinh2))
+                        guna2ImageButton4.Image = Image.FromFile(hinh2);
+
+                    if (!string.IsNullOrEmpty(hinh3) && File.Exists(hinh3))
+                        guna2ImageButton2.Image = Image.FromFile(hinh3);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy hình ảnh cho sản phẩm này.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải hình ảnh: " + ex.Message);
+            }
         }
 
         private void btThem_Click(object sender, EventArgs e)

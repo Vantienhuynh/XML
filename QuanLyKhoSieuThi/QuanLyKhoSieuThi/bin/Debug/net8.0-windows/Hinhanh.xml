@@ -39,4 +39,16 @@
     <Hinh2 />
     <Hinh3 />
   </ProductImages>
+  <ProductImages>
+    <ProductID>SP01</ProductID>
+    <Hinh1 />
+    <Hinh2 />
+    <Hinh3 />
+  </ProductImages>
+  <ProductImages>
+    <ProductID>SP01</ProductID>
+    <Hinh1>C:\Users\DELL\Downloads\anime.jpg</Hinh1>
+    <Hinh2>C:\Users\DELL\Downloads\warehouse.png</Hinh2>
+    <Hinh3>C:\Users\DELL\Downloads\notifications.png</Hinh3>
+  </ProductImages>
 </hinhanh>

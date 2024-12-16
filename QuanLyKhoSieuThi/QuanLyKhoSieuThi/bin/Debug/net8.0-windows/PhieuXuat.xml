@@ -1,61 +1,18 @@
 <?xml version="1.0" standalone="yes"?>
 <PhieuNhaps>
   <PhieuNhap>
-    <MaPhieu>PN001</MaPhieu>
-    <NguoiGiao>Nguyen Van A</NguoiGiao>
-    <SoLuong>100</SoLuong>
-    <MaSP />
-    <ThoiGian>2024-12-15 10:30:00</ThoiGian>
-    <GhiChu>Nhập hàng mới</GhiChu>
-    <MaNhaCungCap>NCC746</MaNhaCungCap>
-  </PhieuNhap>
-  <PhieuNhap>
-    <MaPhieu>PN002</MaPhieu>
-    <NguoiGiao>Nguyen Thi B</NguoiGiao>
-    <SoLuong>200</SoLuong>
-    <MaSP>SP002</MaSP>
-    <ThoiGian>2024-12-16 09:00:00</ThoiGian>
-    <GhiChu>Nhập hàng tiếp</GhiChu>
-    <MaNhaCungCap>NCC743</MaNhaCungCap>
-  </PhieuNhap>
-  <PhieuNhap>
-    <MaPhieu>PN003</MaPhieu>
-    <NguoiGiao>Nguyễn Văn C</NguoiGiao>
-    <SoLuong>200</SoLuong>
-    <MaSP>SP005</MaSP>
-    <ThoiGian>2024-12-15 23:11:23</ThoiGian>
-    <GhiChu>Nhập thêm</GhiChu>
-    <MaNhaCungCap>NCC746</MaNhaCungCap>
-  </PhieuNhap>
-  <PhieuNhap>
-    <MaPhieu>MP885</MaPhieu>
-    <NguoiGiao>Tayeung</NguoiGiao>
-    <MaSP>SP002:3,SP001:3</MaSP>
-    <ThoiGian>2024-12-26 23:11:23</ThoiGian>
-    <GhiChu>gfdhfhgf</GhiChu>
-    <MaNhaCungCap>NCC512</MaNhaCungCap>
-  </PhieuNhap>
-  <PhieuNhap>
-    <MaPhieu>MP8856</MaPhieu>
-    <NguoiGiao>Tayeung</NguoiGiao>
-    <MaSP>SP002:78,SP001:3</MaSP>
-    <ThoiGian>2024-12-26 23:11:23</ThoiGian>
-    <GhiChu>gfdhfhgf</GhiChu>
-    <MaNhaCungCap>NCC512</MaNhaCungCap>
-  </PhieuNhap>
-  <PhieuNhap>
-    <MaPhieu>MP88568</MaPhieu>
-    <NguoiGiao>Tayeung</NguoiGiao>
-    <MaSP>SP002:100,SP001:3</MaSP>
-    <ThoiGian>2024-12-26 23:11:23</ThoiGian>
-    <GhiChu>gfdhfhgf</GhiChu>
-    <MaNhaCungCap>NCC512</MaNhaCungCap>
-  </PhieuNhap>
-  <PhieuNhap>
     <MaPhieu>PX001</MaPhieu>
     <NguoiGiao>Tien</NguoiGiao>
     <MaSP>SP005:20</MaSP>
-    <ThoiGian>2024-12-15 23:11:23</ThoiGian>
+    <ThoiGian>2024-12-29 23:11:23</ThoiGian>
+    <GhiChu>ko giao</GhiChu>
+    <MaNhaCungCap>NCC743</MaNhaCungCap>
+  </PhieuNhap>
+  <PhieuNhap>
+    <MaPhieu>PX002</MaPhieu>
+    <NguoiGiao>Hieu</NguoiGiao>
+    <MaSP>SP005:20</MaSP>
+    <ThoiGian>2024-12-30 23:11:23</ThoiGian>
     <GhiChu>ko giao</GhiChu>
     <MaNhaCungCap>NCC743</MaNhaCungCap>
   </PhieuNhap>

@@ -1,4 +1,4 @@
-<?xml version="1.0" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Products>
   <Product>
     <ID>1</ID>
@@ -26,11 +26,11 @@
     <ID>3</ID>
     <MaSP>SP002</MaSP>
     <TenSP>Tayeunang</TenSP>
-    <SoLuongCon>184</SoLuongCon>
+    <SoLuongCon>1</SoLuongCon>
     <DonGia>3444</DonGia>
     <NSX>Cocacola</NSX>
     <NgayHetHan>Friday, December 27, 2024</NgayHetHan>
-    <LoaiHang>Gia dụng</LoaiHang>
+    <LoaiHang></LoaiHang>
     <DonViTinh>Thùng</DonViTinh>
   </Product>
   <Product>
@@ -48,11 +48,11 @@
     <ID>5</ID>
     <MaSP>SP005</MaSP>
     <TenSP>Lotion</TenSP>
-    <SoLuongCon>180</SoLuongCon>
+    <SoLuongCon>1</SoLuongCon>
     <DonGia>30000</DonGia>
     <NSX>Cocacola</NSX>
     <NgayHetHan>Saturday, November 23, 2024</NgayHetHan>
-    <LoaiHang>Gia dụng</LoaiHang>
+    <LoaiHang></LoaiHang>
     <DonViTinh>Kg</DonViTinh>
   </Product>
 </Products>

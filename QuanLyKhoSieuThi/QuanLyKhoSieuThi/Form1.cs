@@ -32,10 +32,40 @@ namespace QuanLyKhoSieuThi
             guna2ComboBox3.SelectedIndex = 0;
 
 
-            var data = LoadDataFromXml("PhieuNhap.xml");
+            //var data = LoadDataFromXml("PhieuNhap.xml");
+            //var data2 = LoadDataFromXml("PhieuXuat.xml");
 
-            // Hiển thị dữ liệu lên Chart
+            var data = LoadSampleDataPhieuNhap();
+            var data2 = LoadSampleDataPhieuXuat();
             DisplayDataOnChart(data);
+            DisplayDataOnChart2(data2);
+            GetTotalProducts();
+            GetOutOfStockProducts();
+            GetLowStockProducts();
+        }
+
+
+
+
+        private Dictionary<string, int> LoadSampleDataPhieuNhap()
+        {
+            return new Dictionary<string, int>
+    {
+        { "2024-12-15", 3 }, // 3 phiếu nhập ngày 2024-12-15
+        { "2024-12-16", 2 }, // 2 phiếu nhập ngày 2024-12-16
+        { "2024-12-17", 1 }, // 1 phiếu nhập ngày 2024-12-17
+        { "2024-12-18", 4 }  // 4 phiếu nhập ngày 2024-12-18
+    };
+        }
+
+        private Dictionary<string, int> LoadSampleDataPhieuXuat()
+        {
+            return new Dictionary<string, int>
+    {
+        { "2024-12-14", 2 }, // 2 phiếu xuất ngày 2024-12-15
+        { "2024-12-16", 3 }, // 3 phiếu xuất ngày 2024-12-16
+        { "2024-12-18", 1 }  // 1 phiếu xuất ngày 2024-12-18
+    };
         }
         private void LoadData()
         {
@@ -57,6 +87,49 @@ namespace QuanLyKhoSieuThi
                 }
             }
         }
+
+
+        private void GetTotalProducts()
+        {
+            int totalProducts = Datasp.Rows.Count; // Lấy số lượng hàng trong DataGridView
+            label6.Text = totalProducts.ToString(); // Tổng số sản phẩm = số hàng trong DataGridView
+        }
+
+        private void GetOutOfStockProducts()
+        {
+            int count = 0;
+
+            foreach (DataGridViewRow row in Datasp.Rows)
+            {
+                if (row.Cells["SLCon"].Value != null && int.TryParse(row.Cells["SLCon"].Value.ToString(), out int quantity))
+                {
+                    if (quantity == 0) count++;
+                }
+            }
+
+           label7.Text= count.ToString(); // Số lượng sản phẩm hết hàng
+        }
+
+        private void GetLowStockProducts()
+        {
+            int count = 0;
+
+            foreach (DataGridViewRow row in Datasp.Rows)
+            {
+                if (row.Cells["SLCon"].Value != null && int.TryParse(row.Cells["SLCon"].Value.ToString(), out int quantity))
+                {
+                    if (quantity < 5) count++;
+                }
+            }
+
+            label26.Text= count.ToString(); // Số lượng sản phẩm dưới 5
+        }
+
+
+
+
+
+
         private void Avatar_Click(object sender, EventArgs e)
         {
 
@@ -743,32 +816,49 @@ namespace QuanLyKhoSieuThi
         }
         private Dictionary<string, int> LoadDataFromXml(string filePath)
         {
-            // Tạo từ điển để lưu số lượng phiếu nhập theo ngày
             var result = new Dictionary<string, int>();
 
-            // Đọc file XML
-            XDocument doc = XDocument.Load(filePath);
-
-            // Duyệt qua các phần tử <PhieuNhap>
-            var phieuNhaps = doc.Descendants("PhieuNhap");
-            foreach (var phieu in phieuNhaps)
+            try
             {
-                // Lấy ngày từ <ThoiGian> và chỉ giữ phần yyyy-MM-dd
-                string date = DateTime.Parse(phieu.Element("ThoiGian")?.Value).ToString("yyyy-MM-dd");
+                // Đọc file XML
+                XDocument doc = XDocument.Load(filePath);
 
-                // Cộng dồn số lượng phiếu nhập theo ngày
-                if (result.ContainsKey(date))
+                // Duyệt qua tất cả các phần tử <PhieuNhap>
+                var phieuNhaps = doc.Descendants("PhieuNhap");
+                foreach (var phieu in phieuNhaps)
                 {
-                    result[date]++;
-                }
-                else
-                {
-                    result[date] = 1;
+                    // Lấy giá trị từ thẻ <ThoiGian>
+                    var thoiGianElement = phieu.Element("ThoiGian");
+                    if (thoiGianElement == null || string.IsNullOrWhiteSpace(thoiGianElement.Value))
+                        continue;
+
+                    // Chuyển đổi thời gian thành dạng ngày (yyyy-MM-dd)
+                    if (DateTime.TryParse(thoiGianElement.Value, out DateTime parsedDate))
+                    {
+                        string formattedDate = parsedDate.ToString("yyyy-MM-dd");
+
+                        // Cộng dồn số lượng phiếu theo ngày
+                        if (result.ContainsKey(formattedDate))
+                        {
+                            result[formattedDate]++;
+                        }
+                        else
+                        {
+                            result[formattedDate] = 1;
+                        }
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi đọc file XML: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            return result; // Trả về từ điển: ngày - số lượng phiếu
+            return result;
         }
+
+
+
 
         private void DisplayDataOnChart(Dictionary<string, int> data)
         {
@@ -776,27 +866,116 @@ namespace QuanLyKhoSieuThi
             chart1.Series.Clear();
 
             // Tạo series mới
-            var series = new Series("Tổng số phiếu nhập theo ngày")
+            var series = new Series("Tổng PN")
+            {
+                ChartType = SeriesChartType.Column // Biểu đồ cột
+            };
+
+      
+  
+            // Thêm series vào Chart
+            foreach (var item in data)
+            {
+                series.Points.AddXY(item.Key, item.Value);
+            }
+
+            series["PointWidth"] = "0.6";
+            chart1.Series.Add(series);
+            // Tùy chỉnh Chart
+            chart1.Titles.Clear();
+            chart1.Titles.Add("Tổng PN");
+            chart1.ChartAreas[0].AxisX.Title = "Ngày";
+            chart1.ChartAreas[0].AxisY.Title = "Số lượng phiếu nhập";
+            chart1.ChartAreas[0].RecalculateAxesScale();
+        }
+
+        private void DisplayDataOnChart2(Dictionary<string, int> data2)
+        {
+            // Xóa các series cũ (nếu có)
+            chart2.Series.Clear();
+
+            // Tạo series mới
+            var series = new Series("Tổng số PX")
             {
                 ChartType = SeriesChartType.Column // Biểu đồ cột
             };
 
             // Thêm dữ liệu vào series
-            foreach (var item in data)
+            foreach (var item in data2)
             {
                 series.Points.AddXY(item.Key, item.Value); // X: ngày, Y: số lượng
             }
 
-            // Thêm series vào Chart
-            chart1.Series.Add(series);
+            // Tùy chỉnh độ rộng của cột
+            series["PointWidth"] = "0.6"; // Độ rộng cột từ 0.1 đến 1.0 (nhỏ hơn = cột nhỏ hơn)
 
-            // Tùy chỉnh Chart
-            chart1.Titles.Clear();
-            chart1.Titles.Add("Tổng số phiếu nhập theo ngày");
-            chart1.ChartAreas[0].AxisX.Title = "Ngày";
-            chart1.ChartAreas[0].AxisY.Title = "Số lượng phiếu nhập";
-            chart1.ChartAreas[0].RecalculateAxesScale();
+            // Thêm series vào Chart
+            chart2.Series.Add(series);
+
+            // Tùy chỉnh trục X
+            chart2.ChartAreas[0].AxisX.Interval = 1; // Hiển thị tất cả các nhãn trục X
+         // Xoay nhãn trục X 45 độ
+            chart2.ChartAreas[0].AxisX.LabelStyle.IsEndLabelVisible = true; // Hiển thị đầy đủ nhãn cuối
+            chart2.ChartAreas[0].AxisX.Title = "Ngày";
+
+            // Tùy chỉnh trục Y
+            chart2.ChartAreas[0].AxisY.Title = "Số lượng phiếu xuất";
+
+            // Tùy chỉnh title
+            chart2.Titles.Clear();
+            chart2.Titles.Add("Tổng số phiếu xuất theo ngày");
+
+            // Recalculate để đảm bảo trục hiển thị đúng
+            chart2.ChartAreas[0].RecalculateAxesScale();
         }
-    
-}
+
+
+        public List<string[]> SearchProduct5()
+        {
+            var doc = XDocument.Load("products.xml");
+
+            var products = from p in doc.Descendants("Product")
+                           let soLuongCon = int.TryParse(p.Element("SoLuongCon")?.Value, out var sl) ? sl : 0
+                           where soLuongCon < 5
+                           select new string[]
+                           {
+                       p.Element("ID")?.Value ?? "",
+                       p.Element("MaSP")?.Value ?? "",
+                       p.Element("TenSP")?.Value ?? "",
+                       p.Element("SoLuongCon")?.Value ?? "",
+                       p.Element("DonGia")?.Value ?? "",
+                       p.Element("NSX")?.Value ?? "",
+                       p.Element("NgayHetHan")?.Value ?? "",
+                       p.Element("LoaiHang")?.Value ?? "",
+                       p.Element("DonViTinh")?.Value ?? ""
+                           };
+
+            return products.ToList();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            var results = SearchProduct5();
+
+            // Xóa tất cả các dòng cũ, giữ nguyên header
+            Datasp.Rows.Clear();
+
+            // Thêm dữ liệu mới vào DataGridView
+            foreach (var row in results)
+            {
+                Datasp.Rows.Add(row);
+            }
+
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

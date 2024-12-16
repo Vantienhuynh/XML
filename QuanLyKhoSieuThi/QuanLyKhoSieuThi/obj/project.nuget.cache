@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WOX5tLRStZo=",
+  "dgSpecHash": "BuGsaiXXsH0=",
   "success": true,
-  "projectFilePath": "E:\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Desktop\\XML\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi\\QuanLyKhoSieuThi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\chart.js\\3.7.1\\chart.js.3.7.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.6\\guna.ui2.winforms.2.0.4.6.nupkg.sha512",

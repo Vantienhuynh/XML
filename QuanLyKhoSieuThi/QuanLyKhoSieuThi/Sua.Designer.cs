@@ -86,6 +86,7 @@
             // txtDonVi
             // 
             txtDonVi.BackColor = Color.Transparent;
+            txtDonVi.BorderColor = SystemColors.ActiveCaption;
             txtDonVi.CustomizableEdges = customizableEdges1;
             txtDonVi.DrawMode = DrawMode.OwnerDrawFixed;
             txtDonVi.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -156,6 +157,7 @@
             // txtLoai
             // 
             txtLoai.BackColor = Color.Transparent;
+            txtLoai.BorderColor = SystemColors.ActiveCaption;
             txtLoai.CustomizableEdges = customizableEdges7;
             txtLoai.DrawMode = DrawMode.OwnerDrawFixed;
             txtLoai.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -182,6 +184,7 @@
             // txtNSX
             // 
             txtNSX.BackColor = Color.Transparent;
+            txtNSX.BorderColor = SystemColors.ActiveCaption;
             txtNSX.CustomizableEdges = customizableEdges9;
             txtNSX.DrawMode = DrawMode.OwnerDrawFixed;
             txtNSX.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -217,6 +220,7 @@
             // 
             // txtDongia
             // 
+            txtDongia.BorderColor = SystemColors.ActiveCaption;
             txtDongia.BorderRadius = 10;
             txtDongia.CustomizableEdges = customizableEdges11;
             txtDongia.DefaultText = "";
@@ -248,6 +252,7 @@
             // 
             // txtTenSP
             // 
+            txtTenSP.BorderColor = SystemColors.ActiveCaption;
             txtTenSP.BorderRadius = 10;
             txtTenSP.CustomizableEdges = customizableEdges13;
             txtTenSP.DefaultText = "";
@@ -279,6 +284,7 @@
             // 
             // txtMaSP
             // 
+            txtMaSP.BorderColor = SystemColors.ActiveCaption;
             txtMaSP.BorderRadius = 10;
             txtMaSP.CustomizableEdges = customizableEdges15;
             txtMaSP.DefaultText = "";
@@ -343,6 +349,7 @@
             guna2ImageButton2.Image = (Image)resources.GetObject("guna2ImageButton2.Image");
             guna2ImageButton2.ImageOffset = new Point(0, 0);
             guna2ImageButton2.ImageRotate = 0F;
+            guna2ImageButton2.ImageSize = new Size(100, 100);
             guna2ImageButton2.Location = new Point(312, 10);
             guna2ImageButton2.Margin = new Padding(10);
             guna2ImageButton2.Name = "guna2ImageButton2";
@@ -359,6 +366,7 @@
             guna2ImageButton4.Image = (Image)resources.GetObject("guna2ImageButton4.Image");
             guna2ImageButton4.ImageOffset = new Point(0, 0);
             guna2ImageButton4.ImageRotate = 0F;
+            guna2ImageButton4.ImageSize = new Size(100, 100);
             guna2ImageButton4.Location = new Point(161, 10);
             guna2ImageButton4.Margin = new Padding(10);
             guna2ImageButton4.Name = "guna2ImageButton4";
@@ -375,6 +383,7 @@
             guna2ImageButton3.Image = (Image)resources.GetObject("guna2ImageButton3.Image");
             guna2ImageButton3.ImageOffset = new Point(0, 0);
             guna2ImageButton3.ImageRotate = 0F;
+            guna2ImageButton3.ImageSize = new Size(100, 100);
             guna2ImageButton3.Location = new Point(10, 10);
             guna2ImageButton3.Margin = new Padding(10);
             guna2ImageButton3.Name = "guna2ImageButton3";
@@ -399,6 +408,7 @@
             guna2ImageButton1.Image = (Image)resources.GetObject("guna2ImageButton1.Image");
             guna2ImageButton1.ImageOffset = new Point(0, 0);
             guna2ImageButton1.ImageRotate = 0F;
+            guna2ImageButton1.ImageSize = new Size(400, 400);
             guna2ImageButton1.Location = new Point(40, 30);
             guna2ImageButton1.Name = "guna2ImageButton1";
             guna2ImageButton1.PressedState.ImageSize = new Size(64, 64);
@@ -433,6 +443,7 @@
             // 
             // txtSL
             // 
+            txtSL.BorderColor = SystemColors.ActiveCaption;
             txtSL.BorderRadius = 10;
             txtSL.CustomizableEdges = customizableEdges21;
             txtSL.DefaultText = "";
@@ -463,6 +474,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1202, 637);
             Controls.Add(panel1);
             Controls.Add(panel2);
