@@ -27,4 +27,16 @@
     <Hinh2>C:\Users\DELL\Downloads\anime.jpg</Hinh2>
     <Hinh3>C:\Users\DELL\Downloads\programmer.png</Hinh3>
   </ProductImages>
+  <ProductImages>
+    <ProductID>SP005</ProductID>
+    <Hinh1 />
+    <Hinh2 />
+    <Hinh3 />
+  </ProductImages>
+  <ProductImages>
+    <ProductID>SP005</ProductID>
+    <Hinh1 />
+    <Hinh2 />
+    <Hinh3 />
+  </ProductImages>
 </hinhanh>

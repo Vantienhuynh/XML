@@ -56,12 +56,12 @@ namespace QuanLyKhoSieuThi
                     ID = Convert.ToInt32(selectedRow.Cells["ID"].Value),
                     MaSP = selectedRow.Cells["MaSP"].Value.ToString(),
                     TenSP = selectedRow.Cells["TenSP"].Value.ToString(),
-                    SoLuongCon = Convert.ToInt32(selectedRow.Cells["SoLuongCon"].Value),
+                    SoLuongCon = Convert.ToInt32(selectedRow.Cells["SLCon"].Value),
                     DonGia = Convert.ToDecimal(selectedRow.Cells["DonGia"].Value),
-                    NSX = selectedRow.Cells["NSX"].Value.ToString(),
-                    NgayHetHan = selectedRow.Cells["NgayHetHan"].Value.ToString(),
-                    LoaiHang = selectedRow.Cells["LoaiHang"].Value.ToString(),
-                    DonViTinh = selectedRow.Cells["DonViTinh"].Value.ToString()
+                    NSX = selectedRow.Cells["NhaSX"].Value.ToString(),
+                    NgayHetHan = selectedRow.Cells["HSD"].Value.ToString(),
+                    LoaiHang = selectedRow.Cells["LoaiSP"].Value.ToString(),
+                    DonViTinh = selectedRow.Cells["Donvi"].Value.ToString()
                 };
 
                 // Đóng form và trả về kết quả

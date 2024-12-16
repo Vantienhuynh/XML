@@ -27,3 +27,7 @@ E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\obj\Debug\net8.0-windows\QuanLyKhoSieuT
 E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\bin\Debug\net8.0-windows\WinForms.DataVisualization.Utilities.dll
 E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\bin\Debug\net8.0-windows\WinForms.DataVisualization.dll
 E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\obj\Debug\net8.0-windows\QuanLyKhoSieuThi.FormSelectProduct.resources
+E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\bin\Debug\net8.0-windows\QuanLyKhoSieuThi.dll.config
+E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\obj\Debug\net8.0-windows\QuanLyKhoSieuThi.csproj.SuggestedBindingRedirects.cache
+E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\obj\Debug\net8.0-windows\QuanLyKhoSieuThi.dll.config
+E:\XML\QuanLyKhoSieuThi\QuanLyKhoSieuThi\obj\Debug\net8.0-windows\QuanLyKhoSieuThi.sourcelink.json
