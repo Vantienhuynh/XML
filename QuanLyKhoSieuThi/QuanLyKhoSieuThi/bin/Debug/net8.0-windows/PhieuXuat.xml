@@ -51,4 +51,12 @@
     <GhiChu>gfdhfhgf</GhiChu>
     <MaNhaCungCap>NCC512</MaNhaCungCap>
   </PhieuNhap>
+  <PhieuNhap>
+    <MaPhieu>PX001</MaPhieu>
+    <NguoiGiao>Tien</NguoiGiao>
+    <MaSP>SP005:20</MaSP>
+    <ThoiGian>2024-12-15 23:11:23</ThoiGian>
+    <GhiChu>ko giao</GhiChu>
+    <MaNhaCungCap>NCC743</MaNhaCungCap>
+  </PhieuNhap>
 </PhieuNhaps>

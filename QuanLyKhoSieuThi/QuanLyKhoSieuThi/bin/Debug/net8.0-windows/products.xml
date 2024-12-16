@@ -26,7 +26,7 @@
     <ID>3</ID>
     <MaSP>SP002</MaSP>
     <TenSP>Tayeunang</TenSP>
-    <SoLuongCon>3</SoLuongCon>
+    <SoLuongCon>184</SoLuongCon>
     <DonGia>3444</DonGia>
     <NSX>Cocacola</NSX>
     <NgayHetHan>Friday, December 27, 2024</NgayHetHan>
@@ -37,7 +37,7 @@
     <ID>4</ID>
     <MaSP>SP001</MaSP>
     <TenSP>Tayeunang</TenSP>
-    <SoLuongCon>3</SoLuongCon>
+    <SoLuongCon>12</SoLuongCon>
     <DonGia>2003</DonGia>
     <NSX>Cocacola</NSX>
     <NgayHetHan>Saturday, November 23, 2024</NgayHetHan>
@@ -48,7 +48,7 @@
     <ID>5</ID>
     <MaSP>SP005</MaSP>
     <TenSP>Lotion</TenSP>
-    <SoLuongCon>200</SoLuongCon>
+    <SoLuongCon>180</SoLuongCon>
     <DonGia>30000</DonGia>
     <NSX>Cocacola</NSX>
     <NgayHetHan>Saturday, November 23, 2024</NgayHetHan>

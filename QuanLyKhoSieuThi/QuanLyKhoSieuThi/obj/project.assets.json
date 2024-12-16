@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "Chart.js/3.7.1": {
+        "type": "package"
+      },
       "Guna.UI2.WinForms/2.0.4.6": {
         "type": "package",
         "dependencies": {
@@ -80,6 +83,19 @@
     }
   },
   "libraries": {
+    "Chart.js/3.7.1": {
+      "sha512": "gJunTMEueTNdA5Hp92J9sv363msSemW+GSy1VtbrwjxCaMrp+/mgB20EdVezbP34dbM+h+A8G5XbEuL6tOJoCw==",
+      "type": "package",
+      "path": "chart.js/3.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chart.js.3.7.1.nupkg.sha512",
+        "chart.js.nuspec",
+        "content/Scripts/chart.js",
+        "content/Scripts/chart.min.js"
+      ]
+    },
     "Guna.UI2.WinForms/2.0.4.6": {
       "sha512": "NYzSJp7e47Cz3NgGCHvzadash8ycmxxUnpLg4Rr/MSYG9WDw0HOoTI4SkbDW+HbACrf6tsWYCuzWkgvjuM/O6w==",
       "type": "package",
@@ -209,6 +225,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "Chart.js >= 3.7.1",
       "Guna.UI2.WinForms >= 2.0.4.6",
       "WinForms.DataVisualization >= 1.9.2"
     ]
@@ -266,6 +283,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "Chart.js": {
+            "target": "Package",
+            "version": "[3.7.1, )"
+          },
           "Guna.UI2.WinForms": {
             "target": "Package",
             "version": "[2.0.4.6, )"

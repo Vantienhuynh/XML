@@ -1,6 +1,9 @@
-﻿using System.Data;
+﻿using Guna.UI2.WinForms;
+using System.Data;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
+using System.Xml.Linq;
 using static System.Windows.Forms.DataFormats;
 
 namespace QuanLyKhoSieuThi
@@ -16,8 +19,10 @@ namespace QuanLyKhoSieuThi
             LoadData();
             LoadNCC();
             LoadPhieuNhap();
-            LoadComboBoxMaSP();
+            LoadPhieuXuat();
+            //LoadComboBoxMaSP();
             LoadComboBoxMaNCC();
+            LoadComboBoxMaNCC2();
             // Gán dữ liệu cho ComboBox Status
             guna2ComboBox3.Items.Clear();
             guna2ComboBox3.Items.Add("Hoạt động");
@@ -25,6 +30,12 @@ namespace QuanLyKhoSieuThi
 
             // Đặt giá trị mặc định là "Hoạt động"
             guna2ComboBox3.SelectedIndex = 0;
+
+
+            var data = LoadDataFromXml("PhieuNhap.xml");
+
+            // Hiển thị dữ liệu lên Chart
+            DisplayDataOnChart(data);
         }
         private void LoadData()
         {
@@ -188,14 +199,35 @@ namespace QuanLyKhoSieuThi
 
             // Đọc dữ liệu từ file XML vào DataSet
             dataSet.ReadXml(xmlFilePath);
-            SPPHIEU.Rows.Clear();
+            SPPHIEU2.Rows.Clear();
 
             foreach (DataRow row in dataSet.Tables[0].Rows)
             {
-                int rowIndex = SPPHIEU.Rows.Add();
+                int rowIndex = SPPHIEU2.Rows.Add();
                 for (int i = 0; i < row.ItemArray.Length; i++)
                 {
-                    SPPHIEU.Rows[rowIndex].Cells[i].Value = row.ItemArray[i];
+                    SPPHIEU2.Rows[rowIndex].Cells[i].Value = row.ItemArray[i];
+                }
+            }
+        }
+        private void LoadPhieuXuat()
+        {
+
+            string xmlFilePath = "PhieuXuat.xml";
+
+            // Tạo một DataSet để chứa dữ liệu từ file XML
+            DataSet dataSet = new DataSet();
+
+            // Đọc dữ liệu từ file XML vào DataSet
+            dataSet.ReadXml(xmlFilePath);
+            GRPX.Rows.Clear();
+
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                int rowIndex = GRPX.Rows.Add();
+                for (int i = 0; i < row.ItemArray.Length; i++)
+                {
+                    GRPX.Rows[rowIndex].Cells[i].Value = row.ItemArray[i];
                 }
             }
         }
@@ -285,15 +317,15 @@ namespace QuanLyKhoSieuThi
 
             MessageBox.Show("Xóa nhà cung cấp thành công!");
         }
-        private void LoadComboBoxMaSP()
-        {
-            DataSet dataSet = new DataSet();
-            dataSet.ReadXml("products.xml");
+        //private void LoadComboBoxMaSP()
+        //{
+        //    DataSet dataSet = new DataSet();
+        //    dataSet.ReadXml("products.xml");
 
-            CBNCC.DataSource = dataSet.Tables[0];
-            CBNCC.DisplayMember = "MaSP";
-            CBNCC.ValueMember = "MaSP";
-        }
+        //    CBNCC.DataSource = dataSet.Tables[0];
+        //    CBNCC.DisplayMember = "MaSP";
+        //    CBNCC.ValueMember = "MaSP";
+        //}
         private void LoadComboBoxMaNCC()
         {
             DataSet dataSet = new DataSet();
@@ -302,6 +334,15 @@ namespace QuanLyKhoSieuThi
             guna2ComboBox2.DataSource = dataSet.Tables[0];
             guna2ComboBox2.DisplayMember = "Code";
             guna2ComboBox2.ValueMember = "Code";
+        }
+        private void LoadComboBoxMaNCC2()
+        {
+            DataSet dataSet = new DataSet();
+            dataSet.ReadXml("Manufacturers.xml");
+
+            guna2ComboBox4.DataSource = dataSet.Tables[0];
+            guna2ComboBox4.DisplayMember = "Code";
+            guna2ComboBox4.ValueMember = "Code";
         }
         private void AddNewPhieuNhap()
         {
@@ -312,20 +353,35 @@ namespace QuanLyKhoSieuThi
             DataSet phieuNhapDataSet = new DataSet();
             phieuNhapDataSet.ReadXml(xmlPhieuNhapPath);
 
-            // Thêm hàng mới vào DataSet PhieuNhap
-            DataRow newRow = phieuNhapDataSet.Tables[0].NewRow();
-            string maSP = CBNCC.SelectedValue.ToString(); // Mã sản phẩm được chọn
-            int soLuongNhap = int.Parse(guna2TextBox1.Text);
+            // Danh sách để chứa các mã sản phẩm và số lượng nhập
+            List<(string MaSP, int SoLuongNhap)> productList = new List<(string, int)>();
 
-            // Gán giá trị từ form
+            // Duyệt qua các dòng trong DataGridView để lấy mã sản phẩm và số lượng nhập
+            foreach (DataGridViewRow row in SPPHIEU.Rows)
+            {
+                if (!row.IsNewRow && row.Cells["MaSPP"].Value != null && row.Cells["SoLuongCon"].Value != null)
+                {
+                    string maSP = row.Cells["MaSPP"].Value.ToString();
+                    int soLuongNhap = int.Parse(row.Cells["SoLuongCon"].Value.ToString());
+                    productList.Add((maSP, soLuongNhap));
+                }
+            }
+
+            // Thêm phiếu nhập mới vào DataSet
+            DataRow newRow = phieuNhapDataSet.Tables[0].NewRow();
+
+            // Lấy thông tin từ form
             newRow["MaPhieu"] = guna2TextBox2.Text;
             newRow["NguoiGiao"] = guna2TextBox3.Text;
-            newRow["SoLuong"] = guna2TextBox1.Text;
-            newRow["MaSP"] = maSP;
             newRow["ThoiGian"] = guna2DateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
             newRow["GhiChu"] = txtGhiChu.Text;
             newRow["MaNhaCungCap"] = guna2ComboBox2.SelectedValue.ToString();
 
+            // Gán giá trị cho MaSP theo dạng chuỗi, mỗi mã sản phẩm kèm theo số lượng nhập
+            string maSPString = string.Join(",", productList.Select(p => $"{p.MaSP}:{p.SoLuongNhap}"));
+            newRow["MaSP"] = maSPString;
+
+            // Thêm phiếu nhập vào DataSet
             phieuNhapDataSet.Tables[0].Rows.Add(newRow);
 
             // Ghi lại dữ liệu vào PhieuNhap.xml
@@ -335,22 +391,28 @@ namespace QuanLyKhoSieuThi
             DataSet productDataSet = new DataSet();
             productDataSet.ReadXml(xmlProductPath);
 
-            foreach (DataRow row in productDataSet.Tables[0].Rows)
+            foreach (DataRow productRow in productDataSet.Tables[0].Rows)
             {
-                if (row["MaSP"].ToString() == maSP)
+                string maSP = productRow["MaSP"].ToString();
+
+                // Duyệt qua tất cả các sản phẩm trong phiếu nhập và cập nhật số lượng
+                foreach (var product in productList)
                 {
-                    int currentSoLuongCon = int.Parse(row["SoLuongCon"].ToString());
-                    row["SoLuongCon"] = currentSoLuongCon + soLuongNhap; // Tăng số lượng tồn
-                    break;
+                    if (maSP == product.MaSP)
+                    {
+                        int currentSoLuongCon = int.Parse(productRow["SoLuongCon"].ToString());
+                        productRow["SoLuongCon"] = currentSoLuongCon + product.SoLuongNhap; // Tăng số lượng tồn
+                    }
                 }
             }
 
             // Ghi lại dữ liệu vào Product.xml
             productDataSet.WriteXml(xmlProductPath);
 
-            // Cập nhật DataGridView
+            // Cập nhật DataGridView và giao diện
             LoadPhieuNhap();
             LoadData();
+
             MessageBox.Show("Thêm phiếu nhập và cập nhật số lượng sản phẩm thành công!");
         }
 
@@ -419,8 +481,8 @@ namespace QuanLyKhoSieuThi
 
                 guna2TextBox2.Text = row.Cells["MaPhieu"].Value.ToString();
                 guna2TextBox3.Text = row.Cells["NguoiGiao"].Value.ToString();
-                guna2TextBox1.Text = row.Cells["SoLuong"].Value.ToString();
-                CBNCC.SelectedValue = row.Cells["MaSP2"].Value.ToString();
+
+                //CBNCC.SelectedValue = row.Cells["MaSP2"].Value.ToString();
                 guna2DateTimePicker1.Value = DateTime.Parse(row.Cells["ThoiGian"].Value.ToString());
                 txtGhiChu.Text = row.Cells["GhiChu"].Value.ToString();
                 guna2ComboBox2.SelectedValue = row.Cells["MaNhaCungCap"].Value.ToString();
@@ -449,8 +511,8 @@ namespace QuanLyKhoSieuThi
                 {
                     // Cập nhật thông tin
                     row["NguoiGiao"] = guna2TextBox3.Text;
-                    row["SoLuong"] = guna2TextBox1.Text;
-                    row["MaSP"] = CBNCC.SelectedValue.ToString();
+
+
                     row["ThoiGian"] = guna2DateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss");
                     row["GhiChu"] = txtGhiChu.Text;
                     row["MaNhaCungCap"] = guna2ComboBox2.SelectedValue.ToString();
@@ -495,5 +557,246 @@ namespace QuanLyKhoSieuThi
                 DeleteManufacturer();
             }
         }
-    }
+        private void AddNewPhieuXuat()
+        {
+            string xmlPhieuNhapPath = "PhieuXuat.xml";
+            string xmlProductPath = "products.xml";
+
+            // Đọc dữ liệu từ PhieuNhap.xml
+            DataSet phieuNhapDataSet = new DataSet();
+            phieuNhapDataSet.ReadXml(xmlPhieuNhapPath);
+
+            // Danh sách để chứa các mã sản phẩm và số lượng nhập
+            List<(string MaSP, int SoLuongNhap)> productList = new List<(string, int)>();
+
+            // Duyệt qua các dòng trong DataGridView để lấy mã sản phẩm và số lượng nhập
+            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
+            {
+                if (!row.IsNewRow && row.Cells["MaSPP2"].Value != null && row.Cells["SLC2"].Value != null)
+                {
+                    string maSP = row.Cells["MaSPP2"].Value.ToString();
+                    int soLuongNhap = int.Parse(row.Cells["SLC2"].Value.ToString());
+                    productList.Add((maSP, soLuongNhap));
+                }
+            }
+
+            // Thêm phiếu nhập mới vào DataSet
+            DataRow newRow = phieuNhapDataSet.Tables[0].NewRow();
+
+            // Lấy thông tin từ form
+            newRow["MaPhieu"] = guna2TextBox12.Text;
+            newRow["NguoiGiao"] = guna2TextBox11.Text;
+            newRow["ThoiGian"] = guna2DateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            newRow["GhiChu"] = guna2TextBox1.Text;
+            newRow["MaNhaCungCap"] = guna2ComboBox4.SelectedValue.ToString();
+
+            // Gán giá trị cho MaSP theo dạng chuỗi, mỗi mã sản phẩm kèm theo số lượng nhập
+            string maSPString = string.Join(",", productList.Select(p => $"{p.MaSP}:{p.SoLuongNhap}"));
+            newRow["MaSP"] = maSPString;
+
+            // Thêm phiếu nhập vào DataSet
+            phieuNhapDataSet.Tables[0].Rows.Add(newRow);
+
+            // Ghi lại dữ liệu vào PhieuNhap.xml
+            phieuNhapDataSet.WriteXml(xmlPhieuNhapPath);
+
+            // Cập nhật số lượng trong Product.xml
+            DataSet productDataSet = new DataSet();
+            productDataSet.ReadXml(xmlProductPath);
+
+            foreach (DataRow productRow in productDataSet.Tables[0].Rows)
+            {
+                string maSP = productRow["MaSP"].ToString();
+
+                // Duyệt qua tất cả các sản phẩm trong phiếu nhập và cập nhật số lượng
+                foreach (var product in productList)
+                {
+                    if (maSP == product.MaSP)
+                    {
+                        int currentSoLuongCon = int.Parse(productRow["SoLuongCon"].ToString());
+                        productRow["SoLuongCon"] = currentSoLuongCon - product.SoLuongNhap; // Tăng số lượng tồn
+                    }
+                }
+            }
+
+            // Ghi lại dữ liệu vào Product.xml
+            productDataSet.WriteXml(xmlProductPath);
+
+            // Cập nhật DataGridView và giao diện
+            LoadPhieuNhap();
+            LoadData();
+
+            MessageBox.Show("Thêm phiếu xuất và cập nhật số lượng sản phẩm thành công!");
+        }
+        private void guna2GradientButton5_Click(object sender, EventArgs e)
+        {
+            AddNewPhieuXuat();
+        }
+
+        private void guna2GradientButton8_Click(object sender, EventArgs e)
+        {
+            using (FormSelectProduct formSelect = new FormSelectProduct())
+            {
+                // Mở form select sản phẩm và đợi kết quả
+                if (formSelect.ShowDialog() == DialogResult.OK)
+                {
+                    // Lấy sản phẩm đã chọn từ FormSelectProduct
+                    Product selectedProduct = formSelect.SelectedProduct;
+
+                    // Thêm sản phẩm vào DataGridView (trong form chính)
+                    guna2DataGridView1.Rows.Add(selectedProduct.MaSP, selectedProduct.TenSP, selectedProduct.SoLuongCon, selectedProduct.DonGia);
+                }
+            }
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SPPHIEU2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPXX_Click(object sender, EventArgs e)
+        {
+            var results = SearchPhieuXuat(txtPXX.Text, "PhieuXuat.xml");
+
+            // Xóa tất cả các dòng cũ, giữ nguyên header
+            GRPX.Rows.Clear();
+
+            // Thêm dữ liệu mới vào DataGridView
+            foreach (var row in results)
+            {
+                GRPX.Rows.Add(row);
+            }
+        }
+
+        public List<string[]> SearchPhieuXuat(string keyword, string path)
+        {
+            var doc = XDocument.Load(path);  // _xmlFilePath là đường dẫn tới file XML
+
+            var phieuNhaps = from p in doc.Descendants("PhieuNhap")
+                             where (p.Element("MaPhieu")?.Value.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
+                                    p.Element("NguoiGiao")?.Value.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
+                                    p.Element("MaSP")?.Value.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
+                                    p.Element("ThoiGian")?.Value.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
+                                    p.Element("GhiChu")?.Value.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true ||
+                                    p.Element("MaNhaCungCap")?.Value.Contains(keyword, StringComparison.OrdinalIgnoreCase) == true)
+                             select new string[]
+                             {
+                         p.Element("MaPhieu")?.Value ?? "",
+                         p.Element("NguoiGiao")?.Value ?? "",
+                         p.Element("SoLuong")?.Value ?? "",
+                         p.Element("MaSP")?.Value ?? "",
+                         p.Element("ThoiGian")?.Value ?? "",
+                         p.Element("GhiChu")?.Value ?? "",
+                         p.Element("MaNhaCungCap")?.Value ?? ""
+                             };
+
+            return phieuNhaps.ToList();
+        }
+
+        private void btnPX_Click(object sender, EventArgs e)
+        {
+            var results = SearchPhieuXuat(txtPN.Text, "PhieuNhap.xml");
+
+            // Xóa tất cả các dòng cũ, giữ nguyên header
+            SPPHIEU2.Rows.Clear();
+
+            // Thêm dữ liệu mới vào DataGridView
+            foreach (var row in results)
+            {
+                SPPHIEU2.Rows.Add(row);
+            }
+        }
+
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private Dictionary<string, int> LoadDataFromXml(string filePath)
+        {
+            // Tạo từ điển để lưu số lượng phiếu nhập theo ngày
+            var result = new Dictionary<string, int>();
+
+            // Đọc file XML
+            XDocument doc = XDocument.Load(filePath);
+
+            // Duyệt qua các phần tử <PhieuNhap>
+            var phieuNhaps = doc.Descendants("PhieuNhap");
+            foreach (var phieu in phieuNhaps)
+            {
+                // Lấy ngày từ <ThoiGian> và chỉ giữ phần yyyy-MM-dd
+                string date = DateTime.Parse(phieu.Element("ThoiGian")?.Value).ToString("yyyy-MM-dd");
+
+                // Cộng dồn số lượng phiếu nhập theo ngày
+                if (result.ContainsKey(date))
+                {
+                    result[date]++;
+                }
+                else
+                {
+                    result[date] = 1;
+                }
+            }
+
+            return result; // Trả về từ điển: ngày - số lượng phiếu
+        }
+
+        private void DisplayDataOnChart(Dictionary<string, int> data)
+        {
+            // Xóa các series cũ (nếu có)
+            chart1.Series.Clear();
+
+            // Tạo series mới
+            var series = new Series("Tổng số phiếu nhập theo ngày")
+            {
+                ChartType = SeriesChartType.Column // Biểu đồ cột
+            };
+
+            // Thêm dữ liệu vào series
+            foreach (var item in data)
+            {
+                series.Points.AddXY(item.Key, item.Value); // X: ngày, Y: số lượng
+            }
+
+            // Thêm series vào Chart
+            chart1.Series.Add(series);
+
+            // Tùy chỉnh Chart
+            chart1.Titles.Clear();
+            chart1.Titles.Add("Tổng số phiếu nhập theo ngày");
+            chart1.ChartAreas[0].AxisX.Title = "Ngày";
+            chart1.ChartAreas[0].AxisY.Title = "Số lượng phiếu nhập";
+            chart1.ChartAreas[0].RecalculateAxesScale();
+        }
+    
+}
 }

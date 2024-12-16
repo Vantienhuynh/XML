@@ -57,7 +57,7 @@ namespace QuanLyKhoSieuThi
                     MaSP = selectedRow.Cells["MaSP"].Value.ToString(),
                     TenSP = selectedRow.Cells["TenSP"].Value.ToString(),
                     SoLuongCon = Convert.ToInt32(selectedRow.Cells["SLCon"].Value),
-                    DonGia = Convert.ToDecimal(selectedRow.Cells["DonGia"].Value),
+                    DonGia = Convert.ToDecimal(selectedRow.Cells["Dongia"].Value),
                     NSX = selectedRow.Cells["NhaSX"].Value.ToString(),
                     NgayHetHan = selectedRow.Cells["HSD"].Value.ToString(),
                     LoaiHang = selectedRow.Cells["LoaiSP"].Value.ToString(),
